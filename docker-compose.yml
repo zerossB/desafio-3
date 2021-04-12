@@ -1,0 +1,27 @@
+version: '3'
+services:
+  pgsql:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: desafio_modulo_3
+    volumes:
+      - ./sql/initiate_database.sql:/docker-entrypoint-initdb.d/initiate_database.sql
+      - ./dataset/survey_results_public.csv:/home/survey_results_public.csv
+  
+  metabase:
+    image: metabase/metabase:latest
+    restart: always
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: postgres
+      MB_DB_PORT: 5432
+      MB_DB_USER: postgres
+      MB_DB_PASS: desafio_modulo_3
+      MB_DB_HOST: pgsql
+    ports: 
+      - "3000:3000"
+    depends_on:
+      - pgsql
