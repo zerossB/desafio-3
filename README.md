@@ -17,3 +17,6 @@ $ docker-compose up
 ```
 
 Abra seu navegador e acesse a url `http://localhost:3000`
+
+# Print do Dashboard
+![alt](./assets/print_dashboard.png)

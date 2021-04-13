@@ -10,6 +10,14 @@ services:
     volumes:
       - ./sql/initiate_database.sql:/docker-entrypoint-initdb.d/initiate_database.sql
       - ./dataset/survey_results_public.csv:/home/survey_results_public.csv
+    
+  adminer:
+    image: adminer:latest
+    restart: always
+    ports:
+      - '8080:8080'
+    depends_on:
+      - pgsql
   
   metabase:
     image: metabase/metabase:latest
@@ -21,6 +29,7 @@ services:
       MB_DB_USER: postgres
       MB_DB_PASS: desafio_modulo_3
       MB_DB_HOST: pgsql
+      JAVA_TIMEZONE: America/Sao_Paulo
     ports: 
       - "3000:3000"
     depends_on:
