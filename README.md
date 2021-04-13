@@ -16,7 +16,15 @@ Depois execute o docker com o comando
 $ docker-compose up
 ```
 
-Abra seu navegador e acesse a url `http://localhost:3000`
+Abra seu navegador e acesse a url [http://localhost:3000](http://localhost:3000)
+
+Se quiser acessar o dashboard printado abaixo, utilize o usuário e senha
+```bash
+Usuário: user@email.com
+Senha: p@assw0rd
+```
+
+Depois acesse: [http://localhost:3000/dashboard/1](http://localhost:3000/dashboard/1)
 
 # Print do Dashboard
 ![alt](./assets/print_dashboard.png)

@@ -9,6 +9,7 @@ services:
       POSTGRES_PASSWORD: desafio_modulo_3
     volumes:
       - ./sql/initiate_database.sql:/docker-entrypoint-initdb.d/initiate_database.sql
+      - ./sql/metabase-dump.sql:/docker-entrypoint-initdb.d/metabase-dump.sql
       - ./dataset/survey_results_public.csv:/home/survey_results_public.csv
     
   adminer:
